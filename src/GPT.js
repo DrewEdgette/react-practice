@@ -12,12 +12,8 @@ export class GPT extends Component {
     }
 
     handleButton() {
-      
-    }
-
-    componentDidMount() {
-        const configuration = new Configuration({
-            apiKey: "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",
+      const configuration = new Configuration({
+        apiKey: process.env.REACT_APP_GPT_API_KEY,
         });
 
         const openai = new OpenAIApi(configuration);
@@ -38,10 +34,17 @@ export class GPT extends Component {
         });
     }
 
+    componentDidMount() {
+    
+    }
+
   render() {
     const { response } = this.state
     return (
-      <div>response: {response}</div>
+      <div>
+        response: {response}
+        <button type="button">Click</button>
+      </div>
     )
   }
 }
